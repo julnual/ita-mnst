@@ -1,0 +1,29 @@
+body { font-family: "Prompt", sans-serif; }
+    .hero-icon { width: 160px; height: auto; }
+    .file-column { width: 70px; text-align: center; }
+    .number-column { width: 70px; }
+
+/* ปุ่มกลับหน้าหลัก */
+.home-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 16px;
+  color: #198754;
+  background: #ffffff;
+  border: 1px solid #198754;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.home-button:hover {
+  color: #ffffff;
+  background: #198754;
+}
+
+.home-button i {
+  font-size: 16px;
+}

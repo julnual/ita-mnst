@@ -1,0 +1,374 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --green: #155b49;
+  --green-2: #34775b;
+  --green-soft: #eef5ef;
+  --pink: #c98f8c;
+  --pink-soft: #fff5f4;
+  --text: #173f36;
+  --muted: #5f746d;
+  --line: #b7c9bf;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: "Prompt", sans-serif;
+  color: var(--text);
+  background: #fbfcfa;
+}
+
+.page {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  padding: 38px 24px 26px;
+  background:
+    radial-gradient(circle at 0 0, rgba(208, 220, 211, .65), transparent 23%),
+    radial-gradient(circle at 100% 65%, rgba(228, 235, 229, .7), transparent 25%),
+    linear-gradient(180deg, #ffffff 0%, #fbfcfa 76%, #e6eee7 100%);
+}
+
+/* Decorative soft curves */
+.page::before {
+  content: "";
+  position: absolute;
+  left: -8%;
+  bottom: -125px;
+  width: 116%;
+  height: 210px;
+  border-radius: 50% 50% 0 0;
+  background: rgba(185, 203, 188, .52);
+  transform: rotate(1deg);
+  z-index: 0;
+}
+
+.page::after {
+  content: "";
+  position: absolute;
+  left: -6%;
+  bottom: -92px;
+  width: 112%;
+  height: 145px;
+  border-radius: 50% 50% 0 0;
+  background: rgba(241, 245, 241, .95);
+  transform: rotate(-1deg);
+  z-index: 0;
+}
+
+.hero,
+.year-grid,
+.tagline,
+footer {
+  position: relative;
+  z-index: 2;
+}
+
+.hero {
+  max-width: 1050px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.hospital-logo {
+  display: block;
+  width: 145px;
+  height: 145px;
+  margin: 0 auto 15px;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(27px, 3.3vw, 48px);
+  line-height: 1.28;
+  font-weight: 700;
+  letter-spacing: -.5px;
+}
+
+.hero h1 span {
+  display: block;
+  margin-top: 2px;
+  font-size: .76em;
+  font-weight: 500;
+}
+
+.divider {
+  width: min(610px, 72%);
+  height: 1px;
+  margin: 20px auto 14px;
+  background: linear-gradient(90deg, transparent, var(--line), transparent);
+}
+
+.hero h2 {
+  margin: 0;
+  font-size: clamp(20px, 2.1vw, 29px);
+  font-weight: 600;
+}
+
+.year-grid {
+  width: min(1080px, 100%);
+  margin: 38px auto 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.year-card {
+  min-height: 250px;
+  padding: 28px 22px 23px;
+  border: 1px solid #c8d7ce;
+  border-radius: 22px;
+  background:
+    radial-gradient(circle at 90% 100%, rgba(219, 232, 219, .7), transparent 25%),
+    rgba(255, 255, 255, .86);
+  box-shadow: 0 10px 25px rgba(30, 67, 53, .09);
+  color: var(--text);
+  text-align: center;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+
+.year-card.featured {
+  border-color: #e4c2bf;
+  background:
+    radial-gradient(circle at 90% 100%, rgba(246, 215, 214, .58), transparent 27%),
+    var(--pink-soft);
+}
+
+.year-card:hover,
+.year-card:focus-visible {
+  transform: translateY(-6px);
+  box-shadow: 0 17px 34px rgba(30, 67, 53, .15);
+  border-color: #8db09d;
+  outline: none;
+}
+
+.year-card.featured:hover,
+.year-card.featured:focus-visible {
+  border-color: var(--pink);
+}
+
+.calendar-icon {
+  position: relative;
+  width: 68px;
+  height: 68px;
+  margin-bottom: 16px;
+  border-radius: 50%;
+  background: #e1ecdf;
+}
+
+.featured .calendar-icon {
+  background: #f4dedd;
+}
+
+.calendar-icon::before {
+  content: "";
+  position: absolute;
+  left: 19px;
+  top: 20px;
+  width: 30px;
+  height: 27px;
+  border: 3px solid var(--green-2);
+  border-radius: 5px;
+}
+
+.calendar-icon::after {
+  content: "";
+  position: absolute;
+  left: 24px;
+  top: 16px;
+  width: 20px;
+  height: 9px;
+  border-left: 3px solid var(--green-2);
+  border-right: 3px solid var(--green-2);
+}
+
+.featured .calendar-icon::before {
+  border-color: #a34e4b;
+}
+
+.featured .calendar-icon::after {
+  border-color: #a34e4b;
+}
+
+.calendar-icon span::before,
+.calendar-icon span::after {
+  content: "";
+  position: absolute;
+  top: 31px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--green-2);
+  box-shadow: 8px 0 var(--green-2), 0 8px var(--green-2), 8px 8px var(--green-2);
+}
+
+.calendar-icon span::before {
+  left: 26px;
+}
+
+.calendar-icon span::after {
+  display: none;
+}
+
+.featured .calendar-icon span::before {
+  background: #a34e4b;
+  box-shadow: 8px 0 #a34e4b, 0 8px #a34e4b, 8px 8px #a34e4b;
+}
+
+.year-card p {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.year-card strong {
+  margin: 4px 0 17px;
+  font-size: clamp(28px, 2.7vw, 39px);
+  line-height: 1.2;
+  color: #155b49;
+}
+
+.arrow {
+  width: 46px;
+  height: 46px;
+  margin-top: auto;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--green-2);
+  color: white;
+  font-family: Arial, sans-serif;
+  font-size: 38px;
+  font-weight: 300;
+  line-height: 1;
+}
+
+.featured .arrow {
+  background: var(--pink);
+}
+
+.tagline {
+  margin: 34px auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+}
+
+.tagline span {
+  width: 90px;
+  height: 1px;
+  background: #9bb0a3;
+}
+
+.tagline p {
+  margin: 0;
+  color: #66806f;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(17px, 2vw, 24px);
+  font-style: italic;
+}
+
+footer {
+  margin-top: 42px;
+  text-align: center;
+  line-height: 1.4;
+}
+
+footer strong,
+footer small {
+  display: block;
+}
+
+footer strong {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+footer small {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.leaf {
+  position: absolute;
+  z-index: 1;
+  color: rgba(109, 143, 119, .13);
+  font-family: Georgia, serif;
+  font-size: 260px;
+  line-height: 1;
+  transform: rotate(25deg);
+  user-select: none;
+  pointer-events: none;
+}
+
+.leaf-left {
+  left: -35px;
+  top: 175px;
+}
+
+.leaf-right {
+  right: -30px;
+  top: 210px;
+  transform: rotate(-25deg) scaleX(-1);
+}
+
+@media (max-width: 800px) {
+  .page {
+    padding: 28px 18px 26px;
+  }
+
+  .hospital-logo {
+    width: 115px;
+    height: 115px;
+  }
+
+  .year-grid {
+    grid-template-columns: 1fr;
+    max-width: 520px;
+    margin-top: 30px;
+  }
+
+  .year-card {
+    min-height: 190px;
+  }
+
+  .tagline span {
+    width: 35px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 span {
+    margin-top: 7px;
+  }
+
+  .divider {
+    width: 88%;
+  }
+
+  .tagline {
+    gap: 10px;
+  }
+
+  .tagline p {
+    text-align: center;
+  }
+
+  .tagline span {
+    display: none;
+  }
+}
